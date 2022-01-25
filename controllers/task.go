@@ -2,16 +2,18 @@ package controllers
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/rendiputra/go-simple-rest-api/databases"
+	"github.com/rendiputra/go-simple-rest-api/models"
 )
 
-func create(c *fiber.Ctx) error {
-	task := new(Task)
+func Create(c *fiber.Ctx) error {
+	task := new(models.Task)
 
 	if err := c.BodyParser(task); err != nil {
-		return c.Status(503).SendString(err.Error())
+		return c.Status(400).SendString(err.Error())
 	}
 
-	res, err := db
+	databases.DBConn.Create(&task)
 
-	return c.SendString("Hello, World 👋!")
+	return c.Status(200).JSON(task)
 }

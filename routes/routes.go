@@ -6,8 +6,8 @@ import (
 )
 
 func Setup(app *fiber.App) {
-	app.Get("/api/v1/task", controllers.HelloWorld)
-	app.Get("/api/v1/task/:id", controllers.HelloWorld)
-	app.Post("/api/v1/task/", controllers.HelloWorld)
-	app.Delete("/api/v1/task/:id", controllers.HelloWorld)
+	//app.Get("/api/v1/task", task.HelloWorld)
+	//app.Get("/api/v1/task/:id", task.HelloWorld)
+	app.Post("/api/v1/task/", controllers.Create)
+	//app.Delete("/api/v1/task/:id", task.HelloWorld)
 }
