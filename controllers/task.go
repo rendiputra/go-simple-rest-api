@@ -17,3 +17,11 @@ func Create(c *fiber.Ctx) error {
 
 	return c.Status(200).JSON(task)
 }
+
+func GetTasks(c *fiber.Ctx) error {
+	tasks := []models.Task{}
+
+	databases.DBConn.Find(&tasks)
+
+	return c.Status(200).JSON(tasks)
+}
