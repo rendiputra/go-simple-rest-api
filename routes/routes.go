@@ -10,4 +10,5 @@ func Setup(app *fiber.App) {
 	app.Get("/api/v1/task/:id", controllers.GetTaskById)
 	app.Post("/api/v1/task/", controllers.Create)
 	app.Put("/api/v1/task/:id", controllers.Update)
+	app.Delete("/api/v1/task/:id", controllers.Delete)
 }

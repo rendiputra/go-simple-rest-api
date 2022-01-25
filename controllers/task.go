@@ -48,3 +48,12 @@ func Update(c *fiber.Ctx) error {
 
 	return c.Status(200).JSON("Update berhasil!")
 }
+
+func Delete(c *fiber.Ctx) error {
+	task := []models.Task{}
+	id := c.Params("id")
+	
+	databases.DBConn.Where("id = ?", id).Delete(&task)
+
+	return c.Status(200).JSON("Deleted")
+}
