@@ -19,7 +19,6 @@ func Connect() {
 	}
 
 	log.Println("Sukses koneksi dengan database!")
-	log.Println("connected")
 	db.AutoMigrate(&models.Task{})
 	DBConn = db
 }
